@@ -1,4 +1,4 @@
-## Next.js Template - Rsyawal
+## Next.js Personalized Template - Rsyawal
 
 1. Next.js v11.1.2
 2. Typescript v4.4.3
