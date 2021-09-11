@@ -1,0 +1,34 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🦁 🎧 Checking Types, lints and building your project before committing....'
+
+# npm test
+
+# Check Typescript Errors
+npm run check-types || 
+{
+    echo '❌ ❌ Failed Type Check ❌ ❌
+            Please check your the typescript in your project again.'
+    false;
+}
+
+# Check Linting Errors
+npm run check-lint || 
+{
+    echo '❌ ❌ Failed Linter Check ❌ ❌
+            Please check your the code format in your project again.'
+    false;
+}
+
+# If everything passes, trying to run build
+echo '✨✨ LGTM... trying to build now. ✨✨'
+
+npm run build || 
+{
+    echo '❌ ❌  Next Build Faild ❌ ❌
+            Please view the errors and see why it failed'
+    false;
+}
+
+echo '✨✨ Awesome! I am commiting this now. ✨✨'
